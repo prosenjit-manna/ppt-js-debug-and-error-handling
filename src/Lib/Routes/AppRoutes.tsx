@@ -9,6 +9,10 @@ const LoginPage = React.lazy(() => import('../../Page/Login/LoginPage'));
 const RegisterPage = React.lazy(() => import('../../Page/Register/RegisterPage'));
 const ProfilePage = React.lazy(() => import('../../Page/Profile/ProfilePage'));
 
+const DashboardPage = React.lazy(() => import('../../Page/Dashboard/DashboardPage'));
+
+
+
 export default function AppRoutes() {
   return (
     <div>
@@ -19,6 +23,11 @@ export default function AppRoutes() {
               <Route path={routes.profile.path} element={<ProfilePage />} />
             </Route>
           </Route>
+
+          <Route path={routes.dashboard.path} element={<DashboardPage />}>
+            <Route path={routes.dashboard.children.me.path} element={<ProfilePage />} />
+          </Route>
+
           <Route path={routes.login.path} element={<LoginPage />} />
           <Route path={routes.register.path} element={<RegisterPage />} />
           <Route path="*" element={<NotFound />} />

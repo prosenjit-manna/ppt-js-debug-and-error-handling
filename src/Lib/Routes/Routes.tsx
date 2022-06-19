@@ -10,7 +10,17 @@ export const routes = {
   },
   profile: {
     path: '/profile'
+  },
+  dashboard: {
+    path: '/dashboard',
+
+    children: {
+      me: {
+        path: 'me'
+      }
+    }
   }
+
 };
 
 export default routes;
