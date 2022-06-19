@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# React Starter Template
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+- React typescript with eslint and husky pre-commit hooks for checking lint staged files 
+- Tailwind added 
+- Auth pages added 
+- Redux with saga configured 
+- Basic Folder structure 
+- React router dom with few routes configured 
+- Cypress E2E with typescript config ready 
+- Vscode workspace settings added 
+- Vscode recommended extensions config added 
+- Prettier config added
 
-## Available Scripts
+## Code Quality must be maintained
+- Code quality 
+  - Hooks Ordering 
+  - import ordering 
+  - Indentation ( 2 space )
+  - END of the line add a blank line 
+  - Whitespace 
+  - Class name Hyphen-case
+  - Component Main function PascalCase 
+  - Component Child function camelCase
+  - Variable Name, Css Class Name, Component class Name should be meaningful.
+  - Eslint 
+  - Max 300 lines of code for each components code blocks 
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Recommend Folder structure    
+  - Global Components
+    - component name ( DIR )
+      - style
+      - test spec 
+  - Page 
+    - Auth 
+    - Admin 
+    - Orders
+      - Order List popover 
+    - Users 
+    
+  - SCSS
+    - components
+  - lib 
+    - Guards 
+    - Interface
+    - Hooks ( Custom )
+    - Api Clients
+    - Redux Store 
+    - Error handler
+    - App Constant
