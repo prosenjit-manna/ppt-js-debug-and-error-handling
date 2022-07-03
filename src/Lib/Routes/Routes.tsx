@@ -11,15 +11,13 @@ export const routes = {
   register: {
     path: '/register'
   },
-  profile: {
-    path: '/profile'
-  },
   dashboard: {
     path: '/dashboard',
 
     children: {
       me: {
-        path: 'me'
+        path: 'me',
+        fullPath: '/dashboard/me'
       }
     }
   }

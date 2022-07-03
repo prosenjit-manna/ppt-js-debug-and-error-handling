@@ -9,7 +9,7 @@ function* loginMiddleWare({ payload }: { payload: LoginPayload }) {
   const { user } = yield userApi.getCurrentUser();
   yield console.log(user, payload);
   yield put(userSliceAction.setUserAction(user));
-  yield put(helperSliceAction.redirectLinkAction(routes.profile.path));
+  yield put(helperSliceAction.redirectLinkAction(routes.dashboard.children.me.fullPath));
 }
 
 function* loginSaga() {

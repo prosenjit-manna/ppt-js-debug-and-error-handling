@@ -21,8 +21,8 @@ export default function AppRoutes() {
       <Suspense fallback={<LoadingOverLay />}>
         <Routes>
           <Route path={routes.home.path} element={<HomePage />}>
-            <Route path={routes.profile.path} element={<AuthGuard />}>
-              <Route path={routes.profile.path} element={<ProfilePage />} />
+            <Route path={routes.dashboard.children.me.path} element={<AuthGuard />}>
+              <Route path={routes.dashboard.children.me.path} element={<ProfilePage />} />
             </Route>
           </Route>
 

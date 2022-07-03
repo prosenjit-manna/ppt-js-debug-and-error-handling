@@ -16,7 +16,7 @@ export default function HeaderComponent() {
   return (
     <div>
       <nav className='bg-white   shadow '>
-        <div className='max-w-7xl mx-auto px-8'>
+        <div className='mx-auto px-8'>
           <div className='flex items-center justify-between h-16'>
             <div className=' flex items-center'>
               <a className='flex-shrink-0' href='/'>
@@ -69,7 +69,7 @@ export default function HeaderComponent() {
                       <div className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white  ring-1 ring-black ring-opacity-5'>
                         <div className='py-1 ' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
                           <Link
-                            to={routes.profile.path}
+                            to={routes.dashboard.children.me.path}
                             className='block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 outline-none'
                             role='menuitem'>
                             <span className='flex flex-col'>
