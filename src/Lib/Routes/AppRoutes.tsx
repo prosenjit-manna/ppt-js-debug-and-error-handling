@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Loading from '../../Components/Loading/LoadingComponent';
+import LoadingOverLay from '../../Components/Loading/LoadingOverLay';
 import { AuthGuard } from '../Guards/AuthGuard';
 import routes from './Routes';
 const NotFound = React.lazy(() => import('../../Page/NotFoundPage'));
@@ -16,7 +16,7 @@ const DashboardPage = React.lazy(() => import('../../Page/Dashboard/DashboardPag
 export default function AppRoutes() {
   return (
     <div>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<LoadingOverLay />}>
         <Routes>
           <Route path={routes.home.path} element={<HomePage />}>
             <Route path={routes.profile.path} element={<AuthGuard />}>

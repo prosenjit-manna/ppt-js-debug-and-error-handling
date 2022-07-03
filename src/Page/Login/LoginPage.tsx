@@ -5,10 +5,14 @@ import EmailIcon from '../../Icons/Email-Icon';
 import LockIcon from '../../Icons/Lock-Icon';
 import { useForm } from 'react-hook-form';
 import { LoginPayload } from '../../Lib/Api/Fake/Users/users.interface';
-import { useAppDispatch } from '../../Lib/Store/hooks';
+import { useAppDispatch, useAppSelector } from '../../Lib/Store/hooks';
 import { userSliceActions } from '../../Lib/Store/User/User.Slice';
+import { Link } from 'react-router-dom';
+import routes from '../../Lib/Routes/Routes';
+import LoadingOverLay from '../../Components/Loading/LoadingOverLay';
 
 export default function LoginPage() {
+  const loginState = useAppSelector(state => state.user.login);
   const dispatch  = useAppDispatch();
 
   const {
@@ -35,18 +39,18 @@ export default function LoginPage() {
             </div>
           </div>
           <div className='flex w-full'>
-            <ButtonComponent type='submit'>Login</ButtonComponent>
+            <ButtonComponent type='submit' loading={loginState.loading}>Login</ButtonComponent>
           </div>
         </form>
       </div>
       <div className='flex items-center justify-center mt-6'>
-        <a
-          href='#'
-          target='_blank'
+        <Link
+          to={routes.register.path}
           className='inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700'>
           <span className='ml-2'>You don&#x27;t have an account?</span>
-        </a>
+        </Link>
       </div>
     </div>
+    
   );
 }

@@ -24,12 +24,16 @@ export default function HeaderComponent() {
               </a>
               <div className='hidden md:block'>
                 <div className='ml-10 flex items-baseline space-x-4'>
-                  <a className='text-gray-300  hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium' href='/login'>
+                  <Link 
+                     className='text-gray-300  hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium'
+                     to={routes.login.path}>
                     Login
-                  </a>
-                  <a className='text-gray-300  hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium' href='/register'>
+                  </Link>
+                  <Link 
+                   className='text-gray-300  hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium'
+                   to={routes.register.path}>
                     Register
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
