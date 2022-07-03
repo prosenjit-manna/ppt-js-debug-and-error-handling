@@ -8,6 +8,10 @@ export interface LoginPayload {
   password: string;
 }
 
+export interface ForgetPasswordPayload {
+  username: string;
+}
+
 export interface CurrentUserResponse {
   user: User;
 }

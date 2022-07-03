@@ -5,6 +5,9 @@ export const routes = {
   login: {
     path: '/login'
   },
+  forgetPassword: {
+    path: '/forget-password'
+  },
   register: {
     path: '/register'
   },

@@ -18,6 +18,14 @@ export const userApi = {
         resolve({ user });
       }, 3000);
     });
+  },
+
+  forgetPassword: (): Promise<{ token: string }> => {
+    return new Promise((resolve) => {
+      _.delay(() => {
+        resolve({ token: faker.datatype.uuid() });
+      }, 3000);
+    });
   }
 };
 

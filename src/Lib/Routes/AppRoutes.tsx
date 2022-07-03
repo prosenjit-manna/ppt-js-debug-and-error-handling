@@ -6,6 +6,8 @@ import routes from './Routes';
 const NotFound = React.lazy(() => import('../../Page/NotFoundPage'));
 const HomePage = React.lazy(() => import('../../Page/HomePage'));
 const LoginPage = React.lazy(() => import('../../Page/Login/LoginPage'));
+const ForgetPassword = React.lazy(() => import('../../Page/ForgetPassword/ForgetPassword'));
+
 const RegisterPage = React.lazy(() => import('../../Page/Register/RegisterPage'));
 const ProfilePage = React.lazy(() => import('../../Page/Profile/ProfilePage'));
 
@@ -29,6 +31,7 @@ export default function AppRoutes() {
           </Route>
 
           <Route path={routes.login.path} element={<LoginPage />} />
+          <Route path={routes.forgetPassword.path} element={<ForgetPassword />} />
           <Route path={routes.register.path} element={<RegisterPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

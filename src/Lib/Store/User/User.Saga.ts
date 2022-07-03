@@ -1,6 +1,6 @@
 import { fork, put, takeEvery } from 'redux-saga/effects';
 import { userApi } from '../../Api/Fake';
-import { LoginPayload } from '../../Api/Fake/Users/users.interface';
+import { ForgetPasswordPayload, LoginPayload } from '../../Api/Fake/Users/users.interface';
 import routes from '../../Routes/Routes';
 import { helperSliceAction } from '../Helper/Helper.Slice.Action';
 import { userSliceAction } from './User.Slice.Action';
@@ -16,6 +16,17 @@ function* loginSaga() {
   yield takeEvery(userSliceAction.login as any, loginMiddleWare);
 }
 
+function* forgetPasswordMiddleWare({ payload }: { payload: ForgetPasswordPayload }) {
+  console.log('forgetPasswordMiddleWare payload', payload);
+  const { token } = yield userApi.forgetPassword();
+  yield console.log({ token });
+  yield put(userSliceAction.updateForgetPasswordAction({ token, loading: false }));
+}
+
+function* forgetPasswordSaga() {
+  yield takeEvery(userSliceAction.forgetPassword as any, forgetPasswordMiddleWare);
+}
+
 function* logOutMiddleWare() {
   yield put(helperSliceAction.redirectLinkAction(routes.login.path));
 }
@@ -26,5 +37,6 @@ function* logOutSaga() {
 
 export default function* userSaga() {
   yield fork(loginSaga);
+  yield fork(forgetPasswordSaga);
   yield fork(logOutSaga);
 }

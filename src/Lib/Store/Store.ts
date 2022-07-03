@@ -27,7 +27,8 @@ sagaMiddleware.run(rootSaga);
 
 function handleChange() {
   const state = store.getState();
-  localStorage.setItem('app_state', JSON.stringify(state));
+  console.log('app state', state);
+  // localStorage.setItem('app_state', JSON.stringify(state));
 }
 
 store.subscribe(handleChange);

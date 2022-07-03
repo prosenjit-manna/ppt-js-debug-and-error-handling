@@ -32,9 +32,10 @@ export default function LoginPage() {
           <TextFieldComponent icon={<LockIcon />} placeholder='Your password' type='password' register={register('password')} />
           <div className='flex items-center mb-6 mt-4'>
             <div className='flex ml-auto'>
-              <a href='#' className='inline-flex text-xs font-thin text-gray-500 sm:text-sm  hover:text-gray-700'>
+              <Link to={routes.forgetPassword.path}
+               className='inline-flex text-xs font-thin text-gray-500 sm:text-sm  hover:text-gray-700'>
                 Forgot Your Password?
-              </a>
+              </Link>
             </div>
           </div>
           <div className='flex w-full'>
