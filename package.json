@@ -44,7 +44,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": "eslint src/**/*.ts{,x}"
+    "src/**/*.{ts,tsx}": "eslint src/**/*.ts{,x} --max-warnings=0"
   },
   "browserslist": {
     "production": [

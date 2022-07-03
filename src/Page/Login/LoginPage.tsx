@@ -9,7 +9,6 @@ import { useAppDispatch, useAppSelector } from '../../Lib/Store/hooks';
 import { userSliceActions } from '../../Lib/Store/User/User.Slice';
 import { Link } from 'react-router-dom';
 import routes from '../../Lib/Routes/Routes';
-import LoadingOverLay from '../../Components/Loading/LoadingOverLay';
 
 export default function LoginPage() {
   const loginState = useAppSelector(state => state.user.login);
