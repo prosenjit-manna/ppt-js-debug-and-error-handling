@@ -26,9 +26,12 @@ export default function AppRoutes() {
             </Route>
           </Route>
 
-          <Route path={routes.dashboard.path} element={<DashboardPage />}>
-            <Route path={routes.dashboard.children.me.path} element={<ProfilePage />} />
+          <Route path={routes.dashboard.path} element={<AuthGuard />}>
+            <Route path={routes.dashboard.path} element={<DashboardPage />}>
+              <Route path={routes.dashboard.children.me.path} element={<ProfilePage />} />
+            </Route>
           </Route>
+          
 
           <Route path={routes.login.path} element={<LoginPage />} />
           <Route path={routes.forgetPassword.path} element={<ForgetPassword />} />
