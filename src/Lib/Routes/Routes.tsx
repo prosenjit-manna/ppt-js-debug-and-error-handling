@@ -18,8 +18,12 @@ export const routes = {
       me: {
         path: 'me',
         fullPath: '/dashboard/me'
+      },
+      postList: {
+        path: 'post-list',
+        fullPath: '/dashboard/post-list'
       }
-    }
+    },
   }
 
 };
