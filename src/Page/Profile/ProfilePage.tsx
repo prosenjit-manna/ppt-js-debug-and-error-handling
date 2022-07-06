@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppSelector } from '../../Lib/Store/hooks';
 
 export default function ProfilePage() {
   const user = useAppSelector(state => state.user.currentUser);
+  useEffect(() => {
+    throw new Error('Creating new error');
+  }, []);
 
   return (
     <section className='h-screen bg-gray-100 bg-opacity-50 pt-8'>
