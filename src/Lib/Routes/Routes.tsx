@@ -1,3 +1,5 @@
+import queryString from 'query-string';
+
 export const routes = {
   home: {
     path: '/',
@@ -21,7 +23,12 @@ export const routes = {
       },
       postList: {
         path: 'post-list',
-        fullPath: '/dashboard/post-list'
+        fullPath: '/dashboard/post-list',
+        build: (query: { page: number }) => `/dashboard/post-list?${queryString.stringify(query)}`,
+      },
+      post: {
+        path: 'post/:id',
+        fullPath: (id: number) => `/dashboard/post/${id}`
       }
     },
   }

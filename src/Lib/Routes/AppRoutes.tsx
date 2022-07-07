@@ -12,6 +12,7 @@ const RegisterPage = React.lazy(() => import('../../Page/Register/RegisterPage')
 const DashboardPage = React.lazy(() => import('../../Page/Dashboard/DashboardPage'));
 const ProfilePage = React.lazy(() => import('../../Page/Profile/ProfilePage'));
 const PostList = React.lazy(() => import('../../Page/Dashboard/Post/PostList/PostList'));
+const PostDetails = React.lazy(() => import('../../Page/Dashboard/Post/PostDetails/PostDetails'));
 
 
 
@@ -29,6 +30,7 @@ export default function AppRoutes() {
           <Route path={routes.dashboard.path} element={<DashboardPage />}>
             <Route path={routes.dashboard.children.me.path} element={<ProfilePage />} />
             <Route path={routes.dashboard.children.postList.path} element={<PostList />} />
+            <Route path={routes.dashboard.children.post.path} element={<PostDetails />} />
           </Route>
 
           <Route path={routes.login.path} element={<LoginPage />} />

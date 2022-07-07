@@ -1,4 +1,6 @@
 import axios from 'axios';
+import queryString from 'query-string';
+import { PostQuery } from '../../Store/Post/Post.query.interface';
 
 export interface Post {
   userId: number,
@@ -13,8 +15,8 @@ const http = axios.create({
 
 
 const postApi = {
-  getPostList: async (): Promise<Post[]> => {
-    const { data } = await http.get('/posts');
+  getPostList: async (postQuery?: PostQuery): Promise<Post[]> => {
+    const { data } = await http.get(`/posts?${postQuery ? queryString.stringify(postQuery) : { _limit: 10 }}`);
     return data as Post[];
   },
   getPost: async (id: string) => {

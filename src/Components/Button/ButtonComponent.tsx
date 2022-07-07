@@ -6,10 +6,12 @@ export default function ButtonComponent({
   color,
   type,
   children,
+  className
 }: {
   loading?: boolean;
   color?: 'blue' | 'red';
   type?: 'submit' | 'button';
+  className?: string;
   children: any
 }) {
   const [buttonColor, setButtonColor] = useState(
@@ -29,6 +31,7 @@ export default function ButtonComponent({
       type={type || 'button'}
       disabled={loading}
       className={`py-2 px-4 flex justify-center items-center  w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  opacity-70  rounded-lg
+      ${className}
       ${buttonColor} 
       ${loading ? 'cursor-not-allowed' : ''}`}>
         {children}

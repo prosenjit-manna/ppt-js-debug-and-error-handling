@@ -2,5 +2,9 @@ import { Post } from '../../Api/Placeholder/post';
 
 export const postSliceAction = {
   getPosts: 'post/getPosts',
-  getPostAction: (payload: Post[]) => ({ type: postSliceAction.getPosts, payload })
+  setPostList: 'post/setPostList',
+  setPostListAction: (payload: Post[]) => ({ type: postSliceAction.setPostList, payload }),
+  getPost: 'post/getPost',
+  setPost: 'post/setPost',
+  setPostAction: (payload: Post) => ({ type: postSliceAction.setPost, payload }),
 };

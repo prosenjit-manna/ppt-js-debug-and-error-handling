@@ -9,11 +9,11 @@ import PostSlice from './Post/Post.slice';
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware];
 
-const appStateStore = localStorage.getItem('app_state');
-let appState: any = {};
-if (appStateStore) {
-  appState = false ? {} : JSON.parse(appStateStore);
-}
+// const appStateStore = localStorage.getItem('app_state');
+const appState: any = {};
+// if (appStateStore) {
+//   // appState = JSON.parse(appStateStore);
+// }
 
 export const store = configureStore({
   reducer: {
@@ -28,8 +28,8 @@ export const store = configureStore({
 sagaMiddleware.run(rootSaga);
 
 function handleChange() {
-  const state = store.getState();
-  console.log('app state', state);
+  // const state = store.getState();
+  // console.log('app state', state);
   // localStorage.setItem('app_state', JSON.stringify(state));
 }
 
