@@ -78,18 +78,15 @@ export default function SidebarComponent() {
 
         <Link
           className='hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors  duration-200  text-gray-600 rounded-lg '
+          to={routes.dashboard.children.postList.fullPath}>
+          <span className='mx-4 text-lg font-normal'>Posts</span>
+        </Link>
+
+        <Link
+          className='hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors  duration-200  text-gray-600 rounded-lg '
           to={routes.dashboard.children.me.path}>
-          <svg
-            width='20'
-            height='20'
-            className='m-auto'
-            fill='currentColor'
-            viewBox='0 0 2048 1792'
-            xmlns='http://www.w3.org/2000/svg'>
-            <path d='M1070 1178l306-564h-654l-306 564h654zm722-282q0 182-71 348t-191 286-286 191-348 71-348-71-286-191-191-286-71-348 71-348 191-286 286-191 348-71 348 71 286 191 191 286 71 348z'></path>
-          </svg>
+          
           <span className='mx-4 text-lg font-normal'>Profile</span>
-          <span className='flex-grow text-right'></span>
         </Link>
 
       

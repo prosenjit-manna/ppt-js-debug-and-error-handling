@@ -7,11 +7,12 @@ const NotFound = React.lazy(() => import('../../Page/NotFoundPage'));
 const HomePage = React.lazy(() => import('../../Page/HomePage'));
 const LoginPage = React.lazy(() => import('../../Page/Login/LoginPage'));
 const ForgetPassword = React.lazy(() => import('../../Page/ForgetPassword/ForgetPassword'));
-
 const RegisterPage = React.lazy(() => import('../../Page/Register/RegisterPage'));
-const ProfilePage = React.lazy(() => import('../../Page/Profile/ProfilePage'));
 
 const DashboardPage = React.lazy(() => import('../../Page/Dashboard/DashboardPage'));
+const ProfilePage = React.lazy(() => import('../../Page/Profile/ProfilePage'));
+const PostList = React.lazy(() => import('../../Page/Dashboard/Post/PostList/PostList'));
+const PostDetails = React.lazy(() => import('../../Page/Dashboard/Post/PostDetails/PostDetails'));
 
 
 
@@ -26,10 +27,10 @@ export default function AppRoutes() {
             </Route>
           </Route>
 
-          <Route path={routes.dashboard.path} element={<AuthGuard />}>
-            <Route path={routes.dashboard.path} element={<DashboardPage />}>
-              <Route path={routes.dashboard.children.me.path} element={<ProfilePage />} />
-            </Route>
+          <Route path={routes.dashboard.path} element={<DashboardPage />}>
+            <Route path={routes.dashboard.children.me.path} element={<ProfilePage />} />
+            <Route path={routes.dashboard.children.postList.path} element={<PostList />} />
+            <Route path={routes.dashboard.children.post.path} element={<PostDetails />} />
           </Route>
           
 
