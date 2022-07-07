@@ -1,13 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../../../../Lib/Store/hooks';
 import { postSliceActions } from '../../../../Lib/Store/Post/Post.slice';
 
 export default function PostListPage() {
   const dispatch = useDispatch();
+  const postLists = useAppSelector(state => state.post.posts);
 
   useEffect(() => {
-    dispatch(postSliceActions.getPosts());
+    dispatch(postSliceActions.getPosts(postLists));
     console.log('test');
   }, [dispatch]);
 
@@ -25,12 +27,17 @@ export default function PostListPage() {
           </tr>
         </thead>
         <tbody>
-          <tr className='text-gray-700'>
-            <td className='border-b-2 p-4 dark:border-dark-5'>1</td>
-            <td className='border-b-2 p-4 dark:border-dark-5'>Jean Marc</td>
-            <td className='border-b-2 p-4 dark:border-dark-5'>Louis</td>
-            <td className='border-b-2 p-4 dark:border-dark-5'>Jl987</td>
+        {postLists.map(i => {
+          return (
+            <tr className='text-gray-700'>
+            <td className='border-b-2 p-4 dark:border-dark-5'>{i.id}</td>
+            <td className='border-b-2 p-4 dark:border-dark-5'>{i.title}</td>
+            <td className='border-b-2 p-4 dark:border-dark-5'>{i.body}</td>
+            <td className='border-b-2 p-4 dark:border-dark-5'>{i.userId}</td>
           </tr>
+          );
+        })}
+          
         </tbody>
       </table>
     </div>

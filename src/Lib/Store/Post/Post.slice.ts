@@ -13,8 +13,9 @@ export const postSlice = createSlice({
   name: 'post',
   initialState,
   reducers: {
-   getPosts: () => {
+   getPosts: (state, { payload } : { payload: Post[] }) => {
     console.log('initiate post query');
+    state.posts = payload;
    },
   },
 });
