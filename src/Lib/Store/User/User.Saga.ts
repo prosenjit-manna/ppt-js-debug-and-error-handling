@@ -5,11 +5,20 @@ import routes from '../../Routes/Routes';
 import { helperSliceAction } from '../Helper/Helper.Slice.Action';
 import { userSliceAction } from './User.Slice.Action';
 
-function* loginMiddleWare({ payload }: { payload: LoginPayload }) {
-  const { user } = yield userApi.getCurrentUser();
-  yield console.log(user, payload);
-  yield put(userSliceAction.setUserAction(user));
-  yield put(helperSliceAction.redirectLinkAction(routes.dashboard.children.me.fullPath));
+function* loginMiddleWare({ payload }: { payload: LoginPayload }): any {
+    // const loginData = yield userApi.login(payload);
+    // yield console.log('loginData', loginData);
+    try {
+      const { user } = yield userApi.getCurrentUser();
+      yield console.log(user, payload);
+      yield put(userSliceAction.setUserAction(user));
+    } catch (e) {
+      console.trace(e);
+      console.log(e);
+    }
+    
+  
+    yield put(helperSliceAction.redirectLinkAction(routes.dashboard.children.me.fullPath));
 }
 
 function* loginSaga() {

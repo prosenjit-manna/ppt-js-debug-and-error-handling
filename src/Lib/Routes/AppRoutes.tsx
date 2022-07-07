@@ -32,6 +32,7 @@ export default function AppRoutes() {
             <Route path={routes.dashboard.children.postList.path} element={<PostList />} />
             <Route path={routes.dashboard.children.post.path} element={<PostDetails />} />
           </Route>
+          
 
           <Route path={routes.login.path} element={<LoginPage />} />
           <Route path={routes.forgetPassword.path} element={<ForgetPassword />} />

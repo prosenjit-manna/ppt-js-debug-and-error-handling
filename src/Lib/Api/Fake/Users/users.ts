@@ -1,9 +1,18 @@
 import { faker } from '@faker-js/faker';
 import _ from 'lodash';
+import axios from 'axios';
 
-import { CurrentUserResponse, User } from './users.interface';
+const fakeHttp  = axios.create({
+  baseURL: 'https://reqres.in/api'
+});
+
+import { CurrentUserResponse, LoginPayload, User } from './users.interface';
 
 export const userApi = {
+  login: async (payload: LoginPayload) => {
+    const response = await fakeHttp.post('/login', payload);
+    return response.data as { token: string };
+  },
   getCurrentUser: (): Promise<CurrentUserResponse> => {
     return new Promise((resolve) => {
       _.delay(() => {
@@ -16,7 +25,7 @@ export const userApi = {
           image: faker.image.avatar()
         };
         resolve({ user });
-      }, 3000);
+      }, 1000);
     });
   },
 
