@@ -37,7 +37,7 @@ export default function ForgetPassWordPage() {
             </div>
           </div>
           <div className='flex w-full'>
-            <ButtonComponent type='submit' loading={forGetPasswordState.loading}>Login</ButtonComponent>
+            <ButtonComponent testId='login' type='submit' loading={forGetPasswordState.loading}>Login</ButtonComponent>
           </div>
         </form>
         {forGetPasswordState.token && (
