@@ -20,7 +20,7 @@ export const userApi = {
           id: faker.datatype.uuid(),
           firstName: faker.name.firstName(),
           lastName:  faker.name.lastName(),
-          phoneNo: faker.phone.phoneNumber(),
+          phoneNo: faker.phone.number(),
           token: faker.datatype.uuid(),
           image: faker.image.avatar()
         };
