@@ -4,7 +4,8 @@ import LoadingOverLay from '../../Components/Loading/LoadingOverLay';
 import { AuthGuard } from '../Guards/AuthGuard';
 import routes from './Routes';
 const NotFound = React.lazy(() => import('../../Page/NotFoundPage'));
-const HomePage = React.lazy(() => import('../../Page/HomePage'));
+const IndexPage = React.lazy(() => import('../../Page/Index'));
+const AppPage = React.lazy(() => import('../../Page/AppPage'));
 const LoginPage = React.lazy(() => import('../../Page/Login/LoginPage'));
 const ForgetPassword = React.lazy(() => import('../../Page/ForgetPassword/ForgetPassword'));
 const RegisterPage = React.lazy(() => import('../../Page/Register/RegisterPage'));
@@ -21,9 +22,11 @@ export default function AppRoutes() {
     <div>
       <Suspense fallback={<LoadingOverLay />}>
         <Routes>
-          <Route path={routes.home.path} element={<HomePage />}>
-            <Route path={routes.dashboard.children.me.path} element={<AuthGuard />}>
-              <Route path={routes.dashboard.children.me.path} element={<ProfilePage />} />
+          <Route path={routes.home.path} element={<IndexPage />} />
+
+          <Route path={routes.app.path} element={<AppPage />}>
+            <Route path={routes.app.children.me.path} element={<AuthGuard />}>
+              <Route path={routes.app.children.me.path} element={<ProfilePage />} />
             </Route>
           </Route>
 

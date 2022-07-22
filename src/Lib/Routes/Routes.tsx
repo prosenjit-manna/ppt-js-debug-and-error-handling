@@ -13,6 +13,16 @@ export const routes = {
   register: {
     path: '/register'
   },
+  app: {
+    path: '/app',
+
+    children: {
+      me: {
+        path: '/app/me',
+        fullPath: '/app/me'
+      }
+    }
+  },
   dashboard: {
     path: '/dashboard',
 

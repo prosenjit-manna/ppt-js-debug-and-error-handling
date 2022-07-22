@@ -8,6 +8,7 @@
     "esbenp.prettier-vscode",
     "SonarSource.sonarlint-vscode",
     "stylelint.vscode-stylelint",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "mintlify.document"
   ]
 }
