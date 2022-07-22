@@ -2,8 +2,8 @@ import { fork, put, takeEvery } from 'redux-saga/effects';
 import { userApi } from '../../Api/Fake';
 import { ForgetPasswordPayload, LoginPayload } from '../../Api/Fake/Users/users.interface';
 import routes from '../../Routes/Routes';
-import { helperSliceAction } from '../Helper/Helper.Slice.Action';
-import { userSliceAction } from './User.Slice.Action';
+import { helperSliceActions } from '../Helper/Helper.Slice';
+import { userSliceActions } from './User.Slice';
 
 function* loginMiddleWare({ payload }: { payload: LoginPayload }): any {
     // const loginData = yield userApi.login(payload);
@@ -11,37 +11,37 @@ function* loginMiddleWare({ payload }: { payload: LoginPayload }): any {
     try {
       const { user } = yield userApi.getCurrentUser();
       yield console.log(user, payload);
-      yield put(userSliceAction.setUserAction(user));
+      yield put(userSliceActions.setUser(user));
     } catch (e) {
       console.trace(e);
       console.log(e);
     }
     
   
-    yield put(helperSliceAction.redirectLinkAction(routes.dashboard.children.me.fullPath));
+    yield put(helperSliceActions.setRedirectUrl(routes.dashboard.children.me.fullPath));
 }
 
 function* loginSaga() {
-  yield takeEvery(userSliceAction.login as any, loginMiddleWare);
+  yield takeEvery(userSliceActions.login as any, loginMiddleWare);
 }
 
 function* forgetPasswordMiddleWare({ payload }: { payload: ForgetPasswordPayload }) {
   console.log('forgetPasswordMiddleWare payload', payload);
   const { token } = yield userApi.forgetPassword();
   yield console.log({ token });
-  yield put(userSliceAction.updateForgetPasswordAction({ token, loading: false }));
+  yield put(userSliceActions.updateForgetPassword({ token, loading: false }));
 }
 
 function* forgetPasswordSaga() {
-  yield takeEvery(userSliceAction.forgetPassword as any, forgetPasswordMiddleWare);
+  yield takeEvery(userSliceActions.forgetPassword as any, forgetPasswordMiddleWare);
 }
 
 function* logOutMiddleWare() {
-  yield put(helperSliceAction.redirectLinkAction(routes.login.path));
+  yield put(helperSliceActions.setRedirectUrl(routes.login.path));
 }
 
 function* logOutSaga() {
-  yield takeEvery(userSliceAction.logout as any, logOutMiddleWare);
+  yield takeEvery(userSliceActions.logout as any, logOutMiddleWare);
 }
 
 export default function* userSaga() {
